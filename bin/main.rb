@@ -50,9 +50,23 @@ filenames = Dir.glob("sample/*.rb")
 print filenames[0]
 file = File.open("#{filenames[0]}")
 file_data = file.read
-print file_data
-print file_data.class
 s = StringScanner.new(file_data)
-dat=s.scan_until /def/
-print dat.chomp('def')
+# while(s.eos? == false) do
+#     p s.scan(/\w+/) 
+# end
+#print count
+words=file_data.split(/\W+/)
+$i = 0
+$length = words.length
+$count=0
 
+while $i < $length do
+    p words[$i] 
+
+   if (words[$i] == 'def')
+    $count +=1
+   end
+
+   $i +=1
+end
+p $count
