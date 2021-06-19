@@ -5,7 +5,7 @@ require_relative '../lib/game_logic'
 
 # board
 
-# Description/Explanation of class board
+# Description/Explanation of classboard
 class TicTac
   #:nodoc:
   def initialize; end
@@ -15,86 +15,59 @@ class TicTac
   end
 end
 
-instance = Board.new
-Tic = TicTac.new
-puts 'Welcome to Ruby"s Tic Tac Toe'
-puts 'Enter first player name:'
-name1 = gets.chomp
-loop do
-  if name1 == ''
-    puts 'empty string please input valid name'
-  elsif Tic.numeric? name1
-    puts 'name can not be integer please input valid name'
-  else
-    break
+# rubocop: disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity,  Metrics/AbcSize
+
+# Description/Explanation of classboard
+class Board
+  #:nodoc:
+  attr_accessor :board
+
+  def initialize
+    @board = (1..9).to_a
   end
-  name1 = gets.chomp
+
+  def display_board
+    " #{board[0]} | #{board[1]} | #{board[2]} \n" \
+    "+---+---+---+\n" \
+    " #{board[3]} | #{board[4]} | #{board[5]} \n" \
+    "+---+---+---+\n" \
+    " #{board[6]} | #{board[7]} | #{board[8]} \n" \
+  end
+
+  def checkwinner
+    return true if board[0] == board[1] && board[1] == board[2]
+
+    return true if board[3] == board[4] && board[4] == board[5]
+
+    return true if board[6] == board[7] && board[7] == board[8]
+
+    return true if board[0] == board[3] && board[3] == board[6]
+
+    return true if board[1] == board[4] && board[4] == board[7]
+
+    
+    return true if board[2] == board[5] && board[5] == board[8]
+
+    return true if board[0] == board[4] && board[4] == board[8]
+
+    return true if board[2] == board[4] && board[4] == board[6]
+
+    false
+  end
+
+  def playerturn(cell_num, turn)
+    if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
+      board[cell_num - 1] = if turn.zero?
+                              'X'
+                            else
+                              'O'
+                            end
+      return false
+    end
+    true
+  end
 end
 
-puts 'Enter second player name:'
-name2 = gets.chomp
-
-loop do
-  if name2 == ''
-    puts 'empty string please input valid name'
-  elsif Tic.numeric? name2
-    puts 'name can not be integer please input valid name'
-  else
-    break
-  end
-  name2 = gets.chomp
-end
-
-puts "#{name1} will play with  X and #{name2} will play with  O"
-
-x = 0
-num_turn = 0
-loop do
-  puts `clear`
-  puts instance.display_board
-  puts "\n"
-  if num_turn == 9
-    puts 'The game is drawn no player won'
-    sleep(3)
-    return
-  end
-  if x.zero?
-    puts "Its #{name1} turn! \n Please select the available cell from the board"
-    cell = gets.chomp.to_i
-    while instance.playerturn(cell, x)
-      puts 'invalid move Please enter a valid number from 1 - 9!'
-      cell = gets.chomp.to_i
-    end
-
-    if instance.checkwinner
-      puts `clear`
-      puts instance.display_board
-      puts "#{name1} is the Winner"
-      sleep(3)
-      return
-    end
-
-    x = 1
-
-  else
-    puts "Its #{name2} turn!"
-    puts "\n"
-    puts 'Please select the available cell from the board'
-    cell = gets.chomp.to_i
-    while instance.playerturn(cell, x)
-      puts 'invalid move Please enter a valid number from 1 - 9!'
-      cell = gets.chomp.to_i
-    end
-
-    if instance.checkwinner
-      puts `clear`
-      puts instance.display_board
-      puts "#{name2} is the Winner"
-      return
-    end
-    x = 0
-  end
-  num_turn += 1
-end
+# rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity,  Metrics/AbcSize
 
 # rubocop: enable Metrics/BlockLength
