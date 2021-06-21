@@ -3,10 +3,8 @@
 # rubocop: disable Metrics/BlockLength
 require_relative '../lib/game_logic'
 
-# board
-
-# Description/Explanation of classboard
-class TicTac
+# board TicTac
+class board
   #:nodoc:
   def initialize; end
 
@@ -17,7 +15,7 @@ end
 
 # rubocop: disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity,  Metrics/AbcSize
 
-# Description/Explanation of classboard
+
 class Board
   #:nodoc:
   attr_accessor :board
@@ -53,7 +51,7 @@ class Board
     return true if board[2] == board[4] && board[4] == board[6]
 
     false
-  end
+   end
 
   def playerturn(cell_num, turn)
     if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
@@ -65,8 +63,8 @@ class Board
       return false
     end
     true
-  end
-end
+   end
+ end
 
 # rubocop: enable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity,  Metrics/AbcSize
 

@@ -48,9 +48,8 @@ class Lintermain
         end
         $count
     end
-    def classlines2
+    def classIndent
         file_data=@buffer
-#        rem=file_data.gsub /^$\n/, ''
         classindex=nil
         linenum=1
         classline=0
@@ -59,8 +58,9 @@ class Lintermain
         indent=false
         
         file_data.each_line do |line|
-            indent=false
+            
             if(line.index('class')!=nil)
+                indent=false
                 if(classcount==1)
                     p "no indentation for class at line #{classline}"
                     first=false
@@ -78,8 +78,7 @@ class Lintermain
                 first=true
             end
             if(line.index('end')==classindex && classindex!=nil)
-                p "indentation matched with class at line #{classline}"
-                
+               
                 first=false
                 classindex=nil
                 classcount-=1
@@ -95,6 +94,53 @@ class Lintermain
 
         
     end
+    def methodIndent
+        file_data=@buffer
+        classindex=nil
+        linenum=1
+        classline=0
+        first=false
+        classcount=0
+        indent=false
+        
+        file_data.each_line do |line|
+            
+            if(line.index('def')!=nil)
+                indent=false
+                if(classcount==1)
+                    p "no indentation for method at line #{classline}"
+                    first=false
+                    classindex=nil
+                    classcount=0
+                    
+                end
+
+                classindex=line.index('def')
+                classcount+=1
+            end
+
+            if classindex!=nil && first==false
+                classline=linenum
+                first=true
+            end
+            if(line.index('end')==classindex && classindex!=nil)
+               
+                first=false
+                classindex=nil
+                classcount-=1
+                indent=true
+            end
+            linenum+=1
+
+        end
+        if(indent==false)
+            p "no indentation for method at line #{classline}"
+        end
+
+
+        
+    end
+
 
     def classlines
         $count=0
@@ -159,7 +205,7 @@ end
 #!/usr/bin/env ruby
 filenames = Dir.glob("sample/*.rb")
 numberofFIles = filenames.length
-file = File.open("#{filenames[1]}")
+file = File.open("#{filenames[0]}")
 file_data = file.read
 
 s = StringScanner.new(file_data)
@@ -185,3 +231,4 @@ s = StringScanner.new(file_data)
 x=Lintermain.new(file_data)
 
 x.classlines2
+x.methodIndent
