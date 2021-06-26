@@ -1,9 +1,11 @@
 require 'strscan'
 class Lintermain
     attr_accessor :buffer
+    attr_accessor :loopcount
     attr_accessor :methods
     def initialize (buffer)
         @buffer=buffer
+        @loopcount=0
     end
 
     def printdata
@@ -140,6 +142,64 @@ class Lintermain
 
         
     end
+    def loopIndent(tocheck=nil)
+        file_data=@buffer
+        classindex=nil
+        linenum=1
+        classline=0
+        first=false
+        classcount=0
+        indent=false
+        
+        file_data.each_line do |line|
+            
+            if(line.index(tocheck)!=nil)
+                indent=false
+                if(classcount==1)
+                    p "no indentation for #{tocheck} at line #{classline}"
+                    first=false
+                    classindex=nil
+                    classcount=0
+                    
+                end
+
+                classindex=line.index(tocheck)
+                classcount+=1
+            end
+
+            if classindex!=nil && first==false
+                classline=linenum
+                first=true
+            end
+            if(line.index('end')==classindex && classindex!=nil)
+               
+                first=false
+                classindex=nil
+                classcount-=1
+                indent=true
+            end
+            linenum+=1
+
+        end
+        if(indent==false)
+            p "no indentation for #{tocheck} at line #{classline}"
+        end
+       
+        while(@loopcount<4) do
+            @loopcount+=1
+            if(@loopcount==1)
+                loopIndent('while')
+            elsif (@loopcount==2)
+                loopIndent('begin')
+            elsif (@loopcount==3)
+                loopIndent('until')
+            end
+        end
+
+
+        
+    end
+
 
 
     def classlines
@@ -230,5 +290,4 @@ s = StringScanner.new(file_data)
 
 x=Lintermain.new(file_data)
 
-x.classlines2
-x.methodIndent
+x.loopIndent('if')

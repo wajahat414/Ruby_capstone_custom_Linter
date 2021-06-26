@@ -49,6 +49,12 @@ class Board
     return true if board[0] == board[4] && board[4] == board[8]
 
     return true if board[2] == board[4] && board[4] == board[6]
+    for i in 0..5
+      puts "Value of local variable is #{i}"
+    end
+   for i in 0..5
+    puts "Value of local variable is #{i}"
+    end
 
     false
    end
@@ -62,6 +68,22 @@ class Board
                             end
       return false
     end
+    until $i > $num  do
+      puts("Inside the loop i = #$i" )
+      $i +=1;
+    end
+    until $i > $num  do
+      puts("Inside the loop i = #$i" )
+      $i +=1;
+   end
+   begin
+    puts("Inside the loop i = #$i" )
+    $i +=1
+ end while $i < $num
+ begin
+  puts("Inside the loop i = #$i" )
+  $i +=1
+ end while $i < $num
     true
    end
  end
