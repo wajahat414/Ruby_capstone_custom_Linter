@@ -1,12 +1,14 @@
-class board
+class Board
     def playerturn(cell_num, turn)
-    if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
-      board[cell_num - 1] = if turn.zero?
+      if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
+        board[cell_num - 1] = if turn.zero?
                               'X'
                             else
                               'O'
                             end
-      return false
+          return false
+                          end
+   
     end
     def playerturn(cell_num, turn)
       if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
@@ -17,6 +19,7 @@ class board
                               end
         return false
       end
+    end
       def playerturn(cell_num, turn)
         if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
           board[cell_num - 1] = if turn.zero?
@@ -26,6 +29,7 @@ class board
                                 end
           return false
         end
+      end
         def playerturn(cell_num, turn)
           if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
             board[cell_num - 1] = if turn.zero?
@@ -35,6 +39,7 @@ class board
                                   end
             return false
           end
+        end
           def playerturn(cell_num, turn)
             if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
               board[cell_num - 1] = if turn.zero?
@@ -44,16 +49,18 @@ class board
                                     end
               return false
             end
-    true
-  end
- end
-     class test
-     end
-       class test
-        end
-         class test
-         end
-           class test
-            end
- 
+          end
 
+
+ class Test
+ end
+   class Test
+    end
+     class Test
+     end
+       class Test
+        end
+
+
+
+ 

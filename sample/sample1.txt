@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+# rubocop: disable Metrics/CyclomaticComplexity, Style/Documentation, Metrics/PerceivedComplexity,  Metrics/AbcSize, Style/GlobalVars
+
+require_relative '../lib/game_logic'
+
+# board TicTac
+class Board
+  #:nodoc:
+
+  def numeric?(obj)
+    !obj.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/).nil?
+  end
+end
+
+module Lkasdjas
+end
+
+module Lasdasd
+end
+
+module Lasddsd
+end
+
+class Boardj
+  #:nodoc:
+  attr_accessor :board
+
+  def initialize
+    @board = (1..9).to_a
+  end
+
+  def display_board
+    " #{board[0]} | #{board[1]} | #{board[2]} \n" \
+    "+---+---+---+\n" \
+    " #{board[3]} | #{board[4]} | #{board[5]} \n" \
+    "+---+---+---+\n" \
+    " #{board[6]} | #{board[7]} | #{board[8]} \n" \
+  end
+
+  def checkwinner
+   return true if board[2] == board[5] && board[5] == board[8]
+
+    return true if board[0] == board[4] && board[4] == board[8]
+
+    return true if board[2] == board[4] && board[4] == board[6]
+
+    (0..5).each do |i|
+      puts "Value of local variable is #{i}"
+    end
+    false
+  end
+
+  def playerturn(cell_num, turn)
+    until $i > $num
+      puts("Inside the loop i = #{$i}")
+      $i += 1
+    end
+    true
+  end
+end
+
+# rubocop: enable Metrics/CyclomaticComplexity,Style/Documentation, Metrics/PerceivedComplexity,  Metrics/AbcSize, Style/GlobalVars
