@@ -12,7 +12,13 @@ class board
     !obj.to_s.match(/\A[+-]?\d+?(\.\d+)?\Z/).nil?
   end
 end
+module jfa
+end
 
+module jfa
+end
+module jfa
+end
 # rubocop: disable Metrics/CyclomaticComplexity, Metrics/PerceivedComplexity,  Metrics/AbcSize
 
 
