@@ -1,4 +1,3 @@
-# rubocop: disable Metrics/BlockLength
 require_relative '../lib/ruby_cutom_linter'
 describe Lintermain do
   file = File.open('sample/sample1.txt')
@@ -56,4 +55,3 @@ describe Lintermain do
     end
   end
 end
-# rubocop: enable Metrics/BlockLength

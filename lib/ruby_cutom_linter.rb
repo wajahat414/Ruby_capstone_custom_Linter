@@ -1,6 +1,4 @@
-# frozen_string_literal: true
-
-# rubocop: disable Style/GlobalVars,Metrics/ClassLength,Metrics/BlockLength,Metrics/PerceivedComplexity,Metrics/MethodLength,Metrics/CyclomaticComplexity,Metrics/AbcSize
+# rubocop: disable Style/GlobalVars,Metrics/ClassLength,Metrics/BlockLength,Metrics/PerceivedComplexity,Metrics/MethodLength,Metrics/CyclomaticComplexity
 
 # Description/Explanation of Main class
 class Lintermain
@@ -182,4 +180,4 @@ class Lintermain
     print $h
   end
 end
-# rubocop: enable Style/GlobalVars, Metrics/ClassLength,Metrics/BlockLength,Metrics/PerceivedComplexity,Metrics/MethodLength,Metrics/CyclomaticComplexity,Metrics/AbcSize
+# rubocop: enable Style/GlobalVars, Metrics/ClassLength,Metrics/BlockLength,Metrics/PerceivedComplexity,Metrics/MethodLength,Metrics/CyclomaticComplexity
