@@ -16,8 +16,8 @@ class Lintermain
     @modulelimit = 2
   end
 
-  def countmethods(_testbuffer = nil)
-    @buffer = _testbuffer if _testbuffer
+  def countmethods(testbuffer = nil)
+    @buffer = testbuffer if testbuffer
     words = @buffer.split(/\W+/)
 
     $i = 0
