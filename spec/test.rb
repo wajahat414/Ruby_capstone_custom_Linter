@@ -41,7 +41,7 @@ describe Lintermain do
 
   describe '#methodwarning' do
     it 'shows excessive number of methods in a file than allowed methods per file' do
-      expect(xglob.methodwarning).to eql(3)
+      expect(xglob.methodwarning).to eql(2)
     end
   end
   describe '#classwarning' do

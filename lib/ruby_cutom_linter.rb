@@ -17,6 +17,7 @@ class Lintermain
   end
 
   def countmethods(_testbuffer = nil)
+    @buffer = _testbuffer if _testbuffer
     words = @buffer.split(/\W+/)
 
     $i = 0
