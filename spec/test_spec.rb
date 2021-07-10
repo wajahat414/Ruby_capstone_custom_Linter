@@ -25,7 +25,7 @@ describe Lintermain do
         end\n"
       x = Lintermain.new('', '')
 
-      c = x.send(:count_methods,teststring)
+      c = x.send(:count_methods, teststring)
       expect(c).to eql(2)
     end
   end
@@ -34,7 +34,6 @@ describe Lintermain do
       c = xglob.send(:count_classes)
       expect(c).to eql(2)
     end
-
   end
 
   describe '#count_modules' do
@@ -62,7 +61,6 @@ describe Lintermain do
     it 'return value should be 1 so it should not equal to any value other than 1' do
       expect(xglob.class_warning).not_to eql(2)
     end
-    
   end
   describe '#module_warning' do
     it 'shows excessive number of modules in a file than allowed module per file in our case it should be 1' do

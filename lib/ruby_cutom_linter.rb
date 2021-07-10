@@ -3,7 +3,7 @@
 # Description/Explanation of Main class
 class Lintermain
   attr_accessor :buffer, :loopcount, :methodlimit, :methodnamelimit, :classlimit, :modulelimit, :classnamelimit,
-                :filename, :count_modules, :count_classes, :count_methods
+                :filename
 
   def initialize(buffer, filename)
     @buffer = buffer
