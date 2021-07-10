@@ -1,4 +1,4 @@
-# rubocop: disable Metrics/ClassLength,Metrics/PerceivedComplexity,Metrics/MethodLength,Metrics/CyclomaticComplexity
+# rubocop: disable Metrics/PerceivedComplexity,Metrics/MethodLength,Metrics/CyclomaticComplexity
 
 # Description/Explanation of Main class
 class Lintermain
@@ -140,4 +140,4 @@ class Lintermain
     count
   end
 end
-# rubocop: enable  Metrics/ClassLength,Metrics/PerceivedComplexity,Metrics/MethodLength,Metrics/CyclomaticComplexity
+# rubocop: enable  Metrics/PerceivedComplexity,Metrics/MethodLength,Metrics/CyclomaticComplexity
