@@ -22,20 +22,6 @@ class Lintermain
     @modulelimit = modulelimit
   end
 
-  def count_methods(testbuffer = nil)
-    @buffer = testbuffer if testbuffer
-    words = @buffer.split(/\W+/)
-
-    $i = 0
-    $length = words.length
-    $count = 0
-    while $i < $length
-      $count += 1 if words[$i] == 'def'
-      $i += 1
-    end
-    $count
-  end
-
   def method_warning
     methodcount = count_methods
     if methodcount > @methodlimit
@@ -61,30 +47,6 @@ class Lintermain
       p "There are #{r} excessive modules in file #{@filename}"
     end
     r
-  end
-
-  def count_classes
-    words = @buffer.split(/\W+/)
-    $i = 0
-    $length = words.length
-    $count = 0
-    while $i < $length
-      $count += 1 if words[$i] == 'class'
-      $i += 1
-    end
-    $count
-  end
-
-  def count_modules
-    words = @buffer.split(/\W+/)
-    $i = 0
-    $length = words.length
-    $count = 0
-    while $i < $length
-      $count += 1 if words[$i] == 'module'
-      $i += 1
-    end
-    $count
   end
 
   def loop_indent(tocheck = nil)
@@ -185,6 +147,46 @@ class Lintermain
     p 'line='
     p $line
     print $h
+  end
+
+  private
+
+  def count_methods(testbuffer = nil)
+    @buffer = testbuffer if testbuffer
+    words = @buffer.split(/\W+/)
+
+    $i = 0
+    $length = words.length
+    $count = 0
+    while $i < $length
+      $count += 1 if words[$i] == 'def'
+      $i += 1
+    end
+    $count
+  end
+
+  def count_classes
+    words = @buffer.split(/\W+/)
+    $i = 0
+    $length = words.length
+    $count = 0
+    while $i < $length
+      $count += 1 if words[$i] == 'class'
+      $i += 1
+    end
+    $count
+  end
+
+  def count_modules
+    words = @buffer.split(/\W+/)
+    $i = 0
+    $length = words.length
+    $count = 0
+    while $i < $length
+      $count += 1 if words[$i] == 'module'
+      $i += 1
+    end
+    $count
   end
 end
 # rubocop: enable Style/GlobalVars, Metrics/ClassLength,Metrics/BlockLength,Metrics/PerceivedComplexity,Metrics/MethodLength,Metrics/CyclomaticComplexity

@@ -28,6 +28,7 @@ while i < filelength
 
   x.method_warning
   x.class_warning
+  x.module_warning
   x.loop_indent('class')
   i += 1
 end
