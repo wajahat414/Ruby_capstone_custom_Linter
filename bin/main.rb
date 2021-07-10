@@ -6,7 +6,7 @@ require 'strscan'
 filenames = Dir.glob('test/*')
 filelength = filenames.length
 
-p 'by Default allowed method limit per file is 3 and classes,modules limit is 1  if you want to change enter 1 or 0 for default limits'
+p 'Default method limit is 3,classes,modules limit is 1 to change enter 1'
 input = gets.chomp
 if input == '1'
   p 'enter  limit of methods allowed per file'
