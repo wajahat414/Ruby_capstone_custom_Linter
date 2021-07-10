@@ -1,9 +1,9 @@
 require_relative '../lib/ruby_cutom_linter'
 describe Lintermain do
-  file = File.open('sample/sample1.txt')
+  file = File.open('test/sample1.txt')
   file_data = file.read
   xglob = Lintermain.new(file_data, 'sample1.txt')
-  describe '#countmethods' do
+  describe '#count_methods' do
     it 'count the number of methods in the String' do
       teststring = " def playerturn(cell_num, turn)\n
       if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_numn\n
@@ -24,34 +24,34 @@ describe Lintermain do
           return false\n
         end\n"
       x = Lintermain.new('', '')
-      expect(x.countmethods(teststring)).to eql(2)
+      expect(x.count_methods(teststring)).to eql(2)
     end
   end
-  describe '#countclasses' do
+  describe '#count_classes' do
     it 'count the number of classes in a file for example in file sample1.rb' do
-      expect(xglob.countclasses).to eql(2)
+      expect(xglob.count_classes).to eql(2)
     end
   end
 
-  describe '#countmodules' do
+  describe '#count_modules' do
     it 'count the number of modules in a file for example in file sample1.rb  has a single module' do
-      expect(xglob.countmodules).to eql(3)
+      expect(xglob.count_modules).to eql(3)
     end
   end
 
-  describe '#methodwarning' do
+  describe '#method_warning' do
     it 'shows excessive number of methods in a file than allowed methods per file' do
-      expect(xglob.methodwarning).to eql(2)
+      expect(xglob.method_warning).to eql(2)
     end
   end
-  describe '#classwarning' do
+  describe '#class_warning' do
     it 'shows excessive number of classes in a file than allowed classes per file' do
-      expect(xglob.classwarning).to eql(1)
+      expect(xglob.class_warning).to eql(1)
     end
   end
-  describe '#modulewarning' do
+  describe '#module_warning' do
     it 'shows excessive number of modules in a file than allowed module per file' do
-      expect(xglob.modulewarning).to eql(1)
+      expect(xglob.module_warning).to eql(1)
     end
   end
 end

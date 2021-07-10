@@ -24,7 +24,7 @@ This project is build to adopt to programming best practices like warning for co
 **To get a local copy up and running follow these simple steps.**
 
 - `git clone https://github.com/wajahat414/Ruby_capstone_custom_Linter.git`
-- `cd Tic_tac_toe`
+- `cd Ruby_capstone_custom_Linter`
 - Open Ruby file on your editor
 - Open your terminal(Command Prompt) and type bin/main.rb
 
@@ -32,8 +32,45 @@ Testing With Rspec
 - Test cases have been written carefully to make sure the public methods works as expected
 - From the Terminal run the command
 $ rspec
+### How to use
+### Instruction for testing a file containing Ruby Code
+-its very simple  just copy the file in the Folder name test
+-if there are multiple files and directories then also copy them in the test directory
+-Now just Run the command Ruby bin/main.rb
+-You will get all the Warnings and instrcutions for improving your code
+-BY Default Mehtod limit is 3 per file and number of allowed classes per file is 1 
+-But  this limit can be changed 
 
-### Prerequisites
+### Good code example
+class any
+  def playerturn(cell_num, turn)
+      if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
+        board[cell_num - 1] = if turn.zero?
+                                'X'
+                              else
+                                'O'
+                              end
+        return false
+      end
+  end
+end
+# In this case no warning will be shown
+
+### Bad Code example
+
+class any
+  def playerturn(cell_num, turn)
+      if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
+        board[cell_num - 1] = if turn.zero?
+                                'X'
+                              else
+                                'O'
+                              end
+        return false
+      end
+            end
+      end
+# Now our application will show warning that there is no indentation for class and method along with line and filename
 
 
 ### Setup
@@ -42,17 +79,6 @@ $ rspec
 ### Install
 
 -No installation required
-
-### Deployment
-
--You can deploy this project cloning it on GitHub and then going to:
-->Repository
-->Settings
-->GitHub Pages
-(Select source)
-->Save
-
-The project will be deployed to https://<wajahat414>.github.io/<HTML-CSS-Capstone-Project>/
 
 ## Authors
 

@@ -16,7 +16,13 @@ class Lintermain
     @modulelimit = 2
   end
 
-  def countmethods(testbuffer = nil)
+  def set_limits(methodlimit, classlimit, modulelimit)
+    @methodlimit = methodlimit
+    @classlimit = classlimit
+    @modulelimit = modulelimit
+  end
+
+  def count_methods(testbuffer = nil)
     @buffer = testbuffer if testbuffer
     words = @buffer.split(/\W+/)
 
@@ -30,8 +36,8 @@ class Lintermain
     $count
   end
 
-  def methodwarning
-    methodcount = countmethods
+  def method_warning
+    methodcount = count_methods
     if methodcount > @methodlimit
       r = methodcount - @methodlimit
       p "There are #{r} excessive method in file #{@filename}"
@@ -39,8 +45,8 @@ class Lintermain
     r
   end
 
-  def classwarning
-    classcount = countclasses
+  def class_warning
+    classcount = count_classes
     if classcount > @classlimit
       r = classcount - @classlimit
       p "There are #{r} excessive classes in file #{@filename}"
@@ -48,8 +54,8 @@ class Lintermain
     r
   end
 
-  def modulewarning
-    modulecount = countmodules
+  def module_warning
+    modulecount = count_modules
     if modulecount > @modulelimit
       r = modulecount - @modulelimit
       p "There are #{r} excessive modules in file #{@filename}"
@@ -57,7 +63,7 @@ class Lintermain
     r
   end
 
-  def countclasses
+  def count_classes
     words = @buffer.split(/\W+/)
     $i = 0
     $length = words.length
@@ -69,7 +75,7 @@ class Lintermain
     $count
   end
 
-  def countmodules
+  def count_modules
     words = @buffer.split(/\W+/)
     $i = 0
     $length = words.length
@@ -81,7 +87,7 @@ class Lintermain
     $count
   end
 
-  def loopindent(tocheck = nil)
+  def loop_indent(tocheck = nil)
     file_data = @buffer
     classindex = nil
     linenum = 1
@@ -123,16 +129,16 @@ class Lintermain
       @loopcount += 1
       case @loopcount
       when 1
-        loopindent('def')
+        loop_indent('def')
       when 2
-        loopindent('while')
+        loop_indent('while')
       when 3
-        loopindent('until')
+        loop_indent('until')
       end
     end
   end
 
-  def classlines
+  def class_lines
     $count = 0
     $line = 0
     $def = 1
