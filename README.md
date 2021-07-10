@@ -16,8 +16,6 @@ This project is build to adopt to programming best practices like warning for co
 - ![GitHub](https://img.shields.io/badge/-GitHub-05122A?style=flat&logo=github)&nbsp; GitHub<br>
 - ![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-05122A?style=flat&logo=visual-studio-code&logoColor=007ACC)&nbsp; VScode
 
-## Live Demo
-
 
 ## Getting Started
 
@@ -33,7 +31,7 @@ Testing With Rspec
 - From the Terminal run the command
 $ rspec
 ### How to use
-### Instruction for testing a file containing Ruby Code
+## Instruction for testing a file containing Ruby Code
 -its very simple  just copy the file in the Folder name test
 -if there are multiple files and directories then also copy them in the test directory
 -Now just Run the command Ruby bin/main.rb
@@ -101,7 +99,6 @@ Give a ⭐️ if you like this project
 
 ## Acknowledgments
 
-- The New York Times (https://thenextweb.com/)
 - Microverse (https://www.microverse.org/)
 - The Odin Project (https://www.theodinproject.com/)
 
