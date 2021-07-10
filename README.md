@@ -1,12 +1,12 @@
 ![](https://img.shields.io/badge/Microverse-blueviolet)
 
-# Ruby - Capstone project : Custom Linter for ruby
+# Ruby - Capstone project: Custom Linter for ruby
 
-This project is build to adopt to programming best practices like warning for correct indentation, restricting number of methods per classes, number of classes and modules per file.
--It shows warning when there is missing  indentation for class method or loop
--gives warning on excessive number of classes per file
--gives warning on excessive number of methods per file 
--like when methods are more than specifed limit
+This project is built to adapt to programming best practices like a warning for correct indentation, restricting the number of methods per class, number of classes, and modules per file.
+-It shows a warning when there is a missing indentation for the class method or loop
+-gives warning on an excessive number of classes per file
+-gives warning on the excessive number of methods per file 
+-like when methods are more than the specified limit
 
 ## Built With
 
@@ -27,48 +27,48 @@ This project is build to adopt to programming best practices like warning for co
 - Open your terminal(Command Prompt) and type bin/main.rb
 
 Testing With Rspec
-- Test cases have been written carefully to make sure the public methods works as expected
+- Test cases have been written carefully to make sure the public methods work as expected
 - From the Terminal run the command
 $ rspec
 ### How to use
 ## Instruction for testing a file containing Ruby Code
--its very simple  just copy the file in the Folder name test
+-its very simple just copy the file in the Folder name test
 -if there are multiple files and directories then also copy them in the test directory
 -Now just Run the command Ruby bin/main.rb
--You will get all the Warnings and instrcutions for improving your code
--BY Default Mehtod limit is 3 per file and number of allowed classes per file is 1 
--But  this limit can be changed 
+-You will get all the Warnings and instructions for improving your code
+-BY Default Method limit is 3 per file and the number of allowed classes per file is 1 
+-But this limit can be changed 
 
 ### Good code example
 class any
-  def playerturn(cell_num, turn)
-      if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
-        board[cell_num - 1] = if turn.zero?
-                                'X'
-                              else
-                                'O'
-                              end
-        return false
-      end
-  end
+def playerturn(cell_num, turn)
+if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
+board[cell_num - 1] = if turn.zero?
+'X'
+else
+'O'
+end
+return false
+end
+end
 end
 # In this case no warning will be shown
 
 ### Bad Code example
 
 class any
-  def playerturn(cell_num, turn)
-      if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
-        board[cell_num - 1] = if turn.zero?
-                                'X'
-                              else
-                                'O'
-                              end
-        return false
-      end
-            end
-      end
-# Now our application will show warning that there is no indentation for class and method along with line and filename
+def playerturn(cell_num, turn)
+if cell_num >= 1 && cell_num <= 9 && board[cell_num - 1] == cell_num
+board[cell_num - 1] = if turn.zero?
+'X'
+else
+'O'
+end
+return false
+end
+end
+end
+# Now our application will show a warning that there is no indentation for class and method along with line and filename
 
 
 ### Setup
@@ -95,7 +95,7 @@ Feel free to check the [issues page](https://github.com/wajahat414/HTML-CSS-Caps
 
 ## Show your support
 
-Give a ⭐️ if you like this project
+Give an ⭐️ if you like this project
 
 ## Acknowledgments
 
